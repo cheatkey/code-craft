@@ -1,8 +1,11 @@
 import Image from "next/image";
+import CodeGenerator from "./components/CodeGenerator/CodeGenerator";
 
 export default function Home() {
   return (
     <main className="bg-dark-900 text-dark-100 min-h-screen p-6">
+      <CodeGenerator />
+
       <div className="grid grid-cols-5 gap-3">
         {Array(10)
           .fill(true)
