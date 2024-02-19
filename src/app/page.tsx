@@ -1,39 +1,22 @@
-import Image from "next/image";
+"use client";
 import CodeGenerator from "./components/CodeGenerator/CodeGenerator";
+import ScriptDownloader from "./components/ScriptDownloader/ScriptDownloader";
+import { StoreProvider } from "./hooks/useStore";
 
 export default function Home() {
   return (
-    <main className="bg-dark-900 text-dark-100 min-h-screen p-6">
-      <CodeGenerator />
+    <StoreProvider>
+      <main className="bg-dark-900 text-dark-100 min-h-screen p-6 flex flex-col gap-6">
+        <h2 className="text-dark-200 text-3xl font-bold">1. 파일 내용 입력</h2>
 
-      <div className="grid grid-cols-5 gap-3">
-        {Array(10)
-          .fill(true)
-          .map((_, index) => (
-            <div
-              key={index}
-              className="bg-dark-800 text-dark-200 p-5 rounded-2xl flex flex-col gap-2"
-            >
-              <p className="font-semibold text-xl tracking-tight">
-                ESM에서 __dirname 사용하는 방법
-              </p>
-              <span className="text-dark-300 text-base">
-                ReferenceError: __dirname is not defined in ES module scope
-              </span>
+        <CodeGenerator />
 
-              <div className="flex flex-row">
-                {["nodejs"].map((tag) => (
-                  <span
-                    className="bg-dark-700 text-dark-300 font-bold text-sm px-2 py-1 rounded-lg"
-                    key={tag}
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-      </div>
-    </main>
+        <h2 className="text-dark-200 text-3xl font-bold">
+          2. 파일 제작 스크립트 다운로드
+        </h2>
+
+        <ScriptDownloader />
+      </main>
+    </StoreProvider>
   );
 }

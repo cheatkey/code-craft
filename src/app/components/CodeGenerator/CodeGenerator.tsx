@@ -2,22 +2,11 @@
 import { useImmer } from "use-immer";
 import { nanoid } from "nanoid";
 import { codeGeneratorWithBash } from "./CodeGenerator.utils";
+import CodeEditor from "./CodeEditor";
+import { useStore } from "@/app/hooks/useStore";
 
 const CodeGenerator = () => {
-  const [files, setFiles] = useImmer<
-    {
-      id: string;
-      fileName: string;
-      content: string;
-    }[]
-  >([
-    {
-      id: nanoid(),
-      fileName: "",
-      content: "",
-    },
-  ]);
-
+  const { files, setFiles } = useStore();
   const updateFile = (
     id: string,
     field: "fileName" | "content",
@@ -45,48 +34,50 @@ const CodeGenerator = () => {
 
   return (
     <div>
-      <div>
+      <div className="flex flex-col gap-5">
         {files.map((file) => {
           return (
-            <div key={file.id} className="bg-dark-800 p-6 flex flex-col gap-4">
-              <div className="flex flex-row gap-3">
+            <div
+              key={file.id}
+              className="bg-dark-800 p-4 flex flex-col gap-4 rounded-lg"
+            >
+              <div className="flex flex-row gap-3 justify-between">
                 <input
                   className="bg-dark-700 rounded-md px-4 py-2"
                   value={file.fileName}
                   onChange={(e) => {
                     updateFile(file.id, "fileName", e.target.value);
                   }}
+                  placeholder="./test/example.ts"
                 ></input>
                 <button
+                  className="text-red-900 bg-red-300 hover:bg-red-400 font-bold px-4 py-2 rounded-xl transition-colors"
                   onClick={() => {
                     deleteFile(file.id);
                   }}
                 >
-                  삭제
+                  파일 삭제
                 </button>
               </div>
-              <textarea
-                className="bg-dark-700 p-4 rounded-md"
-                value={file.content}
-                onChange={(e) => {
-                  updateFile(file.id, "content", e.target.value);
+
+              <CodeEditor
+                code={file.content}
+                setCode={(code) => {
+                  updateFile(file.id, "content", code);
                 }}
-              ></textarea>
+              />
             </div>
           );
         })}
 
         <button
+          className="bg-dark-800 px-44 py-4 rounded-lg hover:bg-dark-700 transition-colors"
           onClick={() => {
             addFile();
           }}
         >
-          +
+          파일 추가하기
         </button>
-      </div>
-
-      <div className="whitespace-break-spaces">
-        {codeGeneratorWithBash(files).script}
       </div>
     </div>
   );
