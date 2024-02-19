@@ -3,7 +3,7 @@ import "./githubCorner.css";
 const GithubCorner = () => {
   return (
     <a
-      href="https://your-url"
+      href="https://github.com/cheatkey/code-craft"
       className="github-corner"
       aria-label="View source on GitHub"
       target="_blank"
