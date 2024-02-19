@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Code Craft
+
+## Overview
+
+![preview](./preview.png)
+
+**Code Craft** is a versatile tool designed to streamline the development setup process for developers. By allowing users to input their frequently used code, **Code Craft** generates Bash and PowerShell scripts that can be downloaded and executed. This functionality enables automatic creation of folders and files, simplifying the initial setup for projects across different environments.
+
+## Features
+
+- **Nested Folder Support:** Easily organize your project structure with support for nested folders. This feature allows for the creation of complex directory hierarchies with a simple command, ensuring your project's organization is both efficient and scalable.
+
+- **Code Editor:** A built-in code editor provides the convenience of editing and reviewing your scripts within the application. This feature ensures that your code is ready to be transformed into scripts without the need for external editors.
+
+- **Environment-Specific Scripts:** Catering to the diverse needs of the development community, **Code Craft** offers script generation for multiple environments, including Windows (PowerShell) and Unix-based systems (Bash for Linux and Mac). This ensures that no matter your operating system, you can benefit from the streamlined setup process.
 
 ## Getting Started
 
-First, run the development server:
+To get started with Code Craft, follow these simple steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Visit the Website**: Start by visiting [https://craft-code.vercel.app/](https://craft-code.vercel.app/) to access the Code Craft tool.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Input Your Code**: Input the code you frequently use in the provided code editor. This can include anything from basic file structures to complex project setups.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Generate Scripts**: Once your code is inputted, select the target environment for your script - Windows (PowerShell) or Unix-based (Bash). Code Craft will then generate the appropriate script for download.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Execute Script**: Download the generated script and execute it on your system. This will automatically create the folders and files as per your specifications, ready for use in your project.
 
-## Learn More
+## Contribution
 
-To learn more about Next.js, take a look at the following resources:
+**Code Craft** is open to contributions! If you have suggestions for improvements or new features, feel free to fork the repository and submit a pull request. Your input is invaluable in making **Code Craft** more versatile and user-friendly.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+**Code Craft** is released under the MIT License. Feel free to use, modify, and distribute the software as per the license terms.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Thank you for choosing **Code Craft** for your development setup needs. Happy coding!
